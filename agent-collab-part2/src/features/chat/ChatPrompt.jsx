@@ -49,7 +49,6 @@ function ChatPrompt() {
       completed: false, // not complete yet
     }
 
-    // add AI response to chat messages
     addMessage(response)
 
     const cloned = $messages.get()
