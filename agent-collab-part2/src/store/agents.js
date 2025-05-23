@@ -31,8 +31,27 @@ export const $agents = atom([
 ])
 
 export const addAgent = (agent) => {
-
   const agents = $agents.get()
   $agents.set([...agents, agent])
-
 }
+
+export const setForm = (name, value, id) => {
+  const agents = $agents.get();
+  const updatedAgents = agents.map((agent) =>
+    agent.id === id
+      ? { ...agent, [name]: name === 'temperature' ? Number(value) : value }
+      : agent
+  );
+  $agents.set(updatedAgents);
+};
+
+export const deleteAgent = (id) => {
+  const agents = $agents.get();
+  const updated = agents.filter((agent) => agent.id !== id);
+  $agents.set(updated);
+};
+
+
+
+
+
